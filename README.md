@@ -1,12 +1,12 @@
-# Portfolio
+# ACG Philip Group
 
-Personal academic portfolio — About, Research, Publications, Projects, Awards, Education, and Contact — built with React, TypeScript, and Vite.
+Site for the Atmospheric Chemistry Group (Prof. Sajeev Philip), Centre for Atmospheric Sciences, IIT Delhi — built with React, TypeScript, and Vite.
 
-Live at **https://schatmessenger.github.io/portfolio/**
+Live at **https://ast222340.github.io/ACGPhilipG/**
 
 ## Editing content
 
-All page content lives in one file: [`src/data/profile.ts`](src/data/profile.ts). Update the placeholder values there (name, bio, research themes, publications, projects, awards, education, contact links) — nothing else needs to change.
+All page content lives in one file: [`src/data/profile.ts`](src/data/profile.ts). Update the values there (name, bio, research themes, publications, presentations, highlights, team members, gallery, etc.) — nothing else needs to change for content updates.
 
 ## Development
 
