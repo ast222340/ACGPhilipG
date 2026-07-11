@@ -3,26 +3,51 @@ import { PageHeader } from '../components/PageHeader'
 import { profile, type HighlightItem } from '../data/profile'
 import { useInView } from '../hooks/useInView'
 
+function resolveImage(src: string) {
+  return src.startsWith('http') ? src : `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`
+}
+
 function HighlightCard({ index, highlight }: { index: number; highlight: HighlightItem }) {
   const { ref, inView } = useInView<HTMLElement>()
-  return (
-    <article
-      ref={ref}
-      className={`award-card reveal ${inView ? 'in-view' : ''}`}
-      style={{ transitionDelay: `${index * 70}ms` }}
-    >
+
+  const text = (
+    <>
       <div className="award-head">
         <h3>{highlight.title}</h3>
         <span className="award-year">{highlight.date}</span>
       </div>
       {highlight.description && <p className="award-desc">{highlight.description}</p>}
       {highlight.href && (
-        <div className="pub-links">
-          <a href={highlight.href} target="_blank" rel="noreferrer">
-            Read more
-            <IconArrowUpRight className="icon-inline" />
-          </a>
-        </div>
+        <span className="pub-links">
+          Read more
+          <IconArrowUpRight className="icon-inline" />
+        </span>
+      )}
+    </>
+  )
+
+  const inner = highlight.image ? (
+    <>
+      <img className="highlight-bg" src={resolveImage(highlight.image)} alt="" loading="lazy" />
+      <div className="highlight-scrim" aria-hidden="true" />
+      <div className="highlight-body">{text}</div>
+    </>
+  ) : (
+    text
+  )
+
+  return (
+    <article
+      ref={ref}
+      className={`award-card highlight-card ${highlight.image ? 'has-image' : ''} reveal ${inView ? 'in-view' : ''}`}
+      style={{ transitionDelay: `${index * 70}ms` }}
+    >
+      {highlight.href ? (
+        <a className="highlight-link" href={highlight.href} target="_blank" rel="noreferrer">
+          {inner}
+        </a>
+      ) : (
+        <div className="highlight-link">{inner}</div>
       )}
     </article>
   )
@@ -37,7 +62,7 @@ export function Highlights() {
         lead="Recent achievements, media mentions, and milestones."
       />
       <section className="section">
-        <div className="award-grid">
+        <div className="award-grid highlight-grid">
           {profile.highlights.map((highlight, i) => (
             <HighlightCard key={highlight.title} index={i} highlight={highlight} />
           ))}

@@ -26,6 +26,7 @@ export function PersonCard({ index, person }: { index: number; person: Person })
       )}
       <h3>{person.name}</h3>
       <p className="person-role">{person.role}</p>
+      <span className="person-details-soon">View details · Coming soon</span>
     </article>
   )
 }

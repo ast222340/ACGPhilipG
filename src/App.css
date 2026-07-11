@@ -287,14 +287,20 @@ html {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--nav-h) + 48px) 32px 80px;
+  padding: calc(var(--nav-h) + 96px) 32px 64px;
   overflow: hidden;
   text-align: center;
+}
+
+@media (min-width: 781px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
 }
 
 .hero-media {
@@ -307,18 +313,17 @@ html {
   pointer-events: none;
 }
 
-.hero-image-duo {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  pointer-events: none;
+@keyframes heroMediaIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.hero-image-half {
-  flex: 1 1 50%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.hero-media-enter {
+  animation: heroMediaIn 0.9s ease forwards;
 }
 
 .hero-overlay {
@@ -334,13 +339,14 @@ html {
   max-width: 900px;
   margin-inline: auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: 32px 48px;
 }
 
 .hero-logo {
-  height: 160px;
+  height: clamp(72px, 10vw, 160px);
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -352,6 +358,8 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  flex: 1 1 320px;
+  min-width: 0;
 }
 
 @keyframes fadeUp {
@@ -445,6 +453,12 @@ html {
 
 .section-head + * {
   margin-top: 44px;
+}
+
+.section-note {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-mute);
 }
 
 /* ---------- Scroll reveal ---------- */
@@ -692,6 +706,76 @@ html {
   color: var(--text);
 }
 
+.highlight-link {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+.highlight-link .pub-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.highlight-grid {
+  grid-template-columns: 1fr;
+}
+
+.highlight-card.has-image {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  min-height: 360px;
+}
+
+.highlight-card.has-image .highlight-link {
+  flex: 1;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.highlight-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.highlight-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 10, 8, 0.05) 30%, rgba(4, 10, 8, 0.9) 100%);
+}
+
+.highlight-body {
+  position: relative;
+  padding: 24px;
+}
+
+.highlight-card.has-image .award-head h3 {
+  color: #ffffff;
+}
+
+.highlight-card.has-image .award-year {
+  color: #8fe0c8;
+}
+
+.highlight-card.has-image .award-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.highlight-card.has-image .highlight-link .pub-links {
+  color: #ffffff;
+}
+
 @media (max-width: 700px) {
   .award-grid {
     grid-template-columns: 1fr;
@@ -740,16 +824,58 @@ html {
 .footer {
   max-width: var(--content-w);
   margin-inline: auto;
-  padding: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  padding: 40px 32px 28px;
+  border-top: 1px solid var(--border);
   font-size: 14px;
   color: var(--text-mute);
-  text-align: center;
 }
 
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+.footer-logo {
+  height: 48px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.footer-brand-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
+.footer-brand-detail {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-mute);
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-social,
 .footer-top {
   width: 36px;
   height: 36px;
@@ -765,9 +891,34 @@ html {
   transition: border-color 0.15s, color 0.15s;
 }
 
+.footer-social svg,
+.footer-top svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social:hover,
 .footer-top:hover {
   border-color: var(--accent-border);
   color: var(--accent);
+}
+
+.footer-copyright {
+  margin-top: 28px;
+  font-size: 12.5px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* ---------- Page header (People, Gallery) ---------- */
@@ -788,6 +939,84 @@ html {
   color: var(--text);
   max-width: 560px;
   margin-inline: auto;
+}
+
+/* ---------- Home / PI profile ---------- */
+.pi-name {
+  font-size: 30px;
+}
+
+.pi-title {
+  margin-top: 6px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.pi-bio {
+  margin-top: 14px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.pi-row {
+  max-width: var(--content-w);
+  margin-inline: auto;
+  padding-inline: 32px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.pi-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  color: var(--text-mute);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pi-photo-grid {
+  max-width: var(--content-w);
+  margin-inline: auto;
+  padding-inline: 32px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.pi-photo-grid img {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.pi-photo-grid p {
+  font-size: 16px;
+  color: var(--text);
+}
+
+@media (max-width: 780px) {
+  .pi-row,
+  .pi-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pi-photo-placeholder {
+    max-width: 200px;
+  }
 }
 
 /* ---------- People ---------- */
@@ -842,6 +1071,18 @@ html {
 .person-role {
   margin-top: 6px;
   font-size: 13px;
+  color: var(--text-mute);
+}
+
+.person-details-soon {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 12px;
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   color: var(--text-mute);
 }
 
@@ -913,7 +1154,8 @@ html {
     scroll-behavior: auto;
   }
 
-  .hero-inner > * {
+  .hero-inner > *,
+  .hero-media-enter {
     animation: none !important;
   }
 

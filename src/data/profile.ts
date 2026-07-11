@@ -26,6 +26,7 @@ export interface HighlightItem {
   date: string
   description?: string
   href?: string
+  image?: string
 }
 
 export interface FaqItem {
@@ -51,15 +52,20 @@ export interface GalleryItem {
 }
 
 export const profile = {
-  name: 'Your Name',
+  name: 'Sajeev Philip',
   field: 'Climate & Atmospheric Sciences',
   affiliation: 'Indian Institute of Technology Delhi',
   location: 'New Delhi, India',
+  address: 'Hauz Khas, New Delhi - 110016, India',
 
-  bio: [
-    'Add two or three sentences here about your background: what you work on, the questions that motivate you, and where you sit in your program (e.g. year, advisor, group).',
-    'Add a second paragraph on prior experience, methods you use (modeling, remote sensing, ML, fieldwork), or what drew you to this field.',
-  ],
+  pi: {
+    name: 'Prof. Sajeev Philip',
+    title: 'Associate Professor, CAS, IIT Delhi',
+    bio: [
+      'Prof. Sajeev Philip studies atmospheric chemistry, climate, and global air quality, with a particular interest in greenhouse gases, aerosols, and satellite remote sensing. He completed his PhD in Physics at Dalhousie University, Canada, and subsequently served as a NASA Postdoctoral Program Fellow and Visiting Associate Scientist at NASA Ames Research Center.',
+      "Our research is motivated by the pressing needs of the scientific community and policy makers to quantitively understand the chemical and physical processes driving the chemical constituents of Earth's atmosphere (troposphere). The troubling irony in this field of research is the dearth of direct measurements over regions where environmental issues are a concern. Therefore, we apply a suite of measurements from space-borne (satellite), suborbital, in situ and ground-based instruments along with forward and inverse model simulations using a global chemical transport model (CTM) to advance our understanding of the chemical composition of the lower troposphere. The molecules of interest range from the ones relevant to climate science research such as carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O) to those relevant to global surface air quality studies such as nitrogen dioxide (NO2), sulfur dioxide (SO2), formaldehyde (HCHO), and ozone (O3).",
+    ],
+  },
 
   email: 'you@example.com',
 
@@ -748,13 +754,34 @@ export const profile = {
 
   highlights: [
     {
-      title: 'A recent achievement, media mention, or milestone',
-      date: '2026',
-      description: 'One line on what happened and why it mattered.',
+      title: 'INSA Associate Fellowship 2023',
+      date: '2023',
+      description:
+        'Prof. Sajeev Philip has been awarded the Indian National Science Academy (INSA) Associate Fellowship 2023. He has also been selected as a member of the National Committee for the International Union of Geodesy and Geophysics (IUGG) and the International Geographical Union (IGU).',
+      image: '/prof.png',
     },
     {
-      title: 'Another highlight or piece of news',
+      title: "Primary Production Drives India's Carbon Flux Response",
       date: '2025',
+      description: 'Coverage of the study on gross primary production and Indian terrestrial carbon flux variability.',
+      href: 'https://scienmag.com/primary-production-drives-indias-carbon-flux-response/',
+      image: '/image.png',
+    },
+    {
+      title: 'Cutting sulfur from coal plants could save over 120,000 lives a year in India',
+      date: 'May 2026',
+      description:
+        'Satellite-driven modelling links power plant emissions to sharp reductions in PM2.5 and unequal but substantial public health gains. Nature India Research Highlight.',
+      href: 'https://www.nature.com/articles/d44151-026-00085-x',
+      image: '/map.png',
+    },
+    {
+      title: 'Emissions from Indian Coal Power Plants',
+      date: '2026',
+      description:
+        'Mitigating SO2 from coal power plants could prevent over 1.24 lakh deaths annually in India, says IIT Delhi study.',
+      href: 'https://indianexpress.com/article/cities/delhi/mitigating-so2-from-coal-power-plants-could-prevent-over-1-24-lakh-deaths-annually-in-india-says-iit-delhi-study-10676757/',
+      image: '/coal.png',
     },
   ] satisfies HighlightItem[],
 
@@ -789,23 +816,76 @@ export const profile = {
   ] satisfies FaqItem[],
 
   team: {
-    phdScholars: [
-      { name: 'Scholar Name One', role: 'Ph.D. Scholar, 2023 — Present' },
-      { name: 'Scholar Name Two', role: 'Ph.D. Scholar, 2024 — Present' },
+    postdoctoral: [],
+    phd: [
+      { name: 'Emili Singha Roy', role: 'Ph.D. Student · Joined January 2022' },
+      { name: 'Ardra D', role: 'Ph.D. Student · Joined August 2022' },
+      {
+        name: 'Vimal Jose Vazhathara',
+        role: 'Ph.D. Student · Joined August 2022 (jointly with Prof. Ravi Kumar Kunchala)',
+      },
+      { name: 'Shalini Yadav', role: 'Ph.D. Student · Joined January 2024 (jointly with Prof. Ravi Kumar Kunchala)' },
+      { name: 'Subhadeep Ghosh', role: 'Ph.D. Student · Joined July 2024' },
+      { name: 'Deeksha Gautam', role: 'Ph.D. Student · Joined July 2024 (jointly with Prof. Sagnik Dey)' },
+      { name: 'Yashika Gandhi', role: 'Ph.D. Student · Joined January 2025' },
     ],
+    masters: [{ name: 'Vishesh Sonkar', role: 'M.S. (Research) Student · Joined May 2026' }],
+    projectStaff: [
+      {
+        name: 'Gourav Saha',
+        role: 'Research Staff · Joined March 2023 (JRF, SERB project; currently PDA/PDF, SRF)',
+      },
+      { name: 'Buddha Prayodhi Sree Sahiti', role: 'Research Staff · Joined July 2026' },
+    ],
+    visiting: [],
+    btechMinorProject: [{ name: 'Ganji Srinath', role: 'B.Tech. Minor Design Project (NGU) · Ongoing' }],
     alumni: [
-      { name: 'Alumnus Name One', role: 'Ph.D. 2025 · now at Institution or Company' },
-      { name: 'Alumnus Name Two', role: 'M.Tech 2024 · now at Institution or Company' },
+      { name: 'Nimitt Bunkar', role: 'M.Tech., April 2025 – May 2026 (jointly with Prof. Sagnik Dey)' },
+      {
+        name: 'Deeksha Gautam',
+        role: 'M.Tech., March 2022 – June 2023; JRF, July 2023 – June 2024 (joined Ph.D. at CAS)',
+      },
+      { name: 'Subhadeep Ghosh', role: 'M.Tech., April 2023 – June 2024 (joined Ph.D. at CAS)' },
+      { name: 'Himani', role: 'M.Tech., April 2024 – May 2025 (jointly with Prof. Sagnik Dey)' },
+      { name: 'Govind Gaur', role: 'M.Tech., April 2024 – May 2025 (jointly with Prof. Sagnik Dey)' },
+      { name: 'Shanmughapriya S.', role: 'Intern, May 20 – July 19, 2024' },
+      { name: 'Faizan Khan', role: 'Intern, November 18, 2024 – February 21, 2025' },
     ],
-  } satisfies { phdScholars: Person[]; alumni: Person[] },
+    btechAlumni: [
+      { name: 'Vaibhav Saha', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Ishika', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Harshit Kumar', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Ankit Raushan', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Navneet Singh', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Kumar Umang', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Dipanshu Goyal', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Lakshya', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Sutariya Dev Dineshbhai', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Makwana Kevalkumar Vashrambhai', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Rishika Arya', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Varshil Nakum', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+      { name: 'Shashi Shekhar', role: 'B.Tech. Minor Design Project (NGU) · Completed' },
+    ],
+  } satisfies {
+    postdoctoral: Person[]
+    phd: Person[]
+    masters: Person[]
+    projectStaff: Person[]
+    visiting: Person[]
+    btechMinorProject: Person[]
+    alumni: Person[]
+    btechAlumni: Person[]
+  },
 
   gallery: [
-    { src: '/gallery/photo-1.jpg', caption: 'Caption — event, location, and year.' },
-    { src: '/gallery/photo-2.jpg', caption: 'Caption — event, location, and year.' },
-    { src: '/gallery/photo-3.jpg', caption: 'Caption — event, location, and year.' },
-    { src: '/gallery/photo-4.jpg', caption: 'Caption — event, location, and year.' },
-    { src: '/gallery/photo-5.jpg', caption: 'Caption — event, location, and year.' },
-    { src: '/gallery/photo-6.jpg', caption: 'Caption — event, location, and year.' },
+    { src: '/Dinner/saj_bdy_2023.jpg', caption: "Sajeev's birthday celebration, 2023" },
+    { src: '/Dinner/tec_day_din_2023.jpg', caption: 'Tech Day dinner, 2023' },
+    { src: '/Dinner/tecday_din_2024.jpeg', caption: 'Tech Day dinner, 2024' },
+    { src: '/Dinner/tec_day_2024.jpg', caption: 'Tech Day, 2024' },
+    { src: '/Dinner/Deeksha_fare.jpg', caption: "Deeksha's farewell" },
+    { src: '/Dinner/WhatsApp Image 2025-10-07 at 10.21.42 PM.jpeg', caption: 'Group dinner, October 2025' },
+    { src: '/Dinner/tecday_2025.jpeg', caption: 'Tech Day, 2025' },
+    { src: '/Dinner/sonmukh.jpeg', caption: 'Group dinner' },
   ] satisfies GalleryItem[],
 }
 
