@@ -60,6 +60,14 @@
   color-scheme: dark;
 }
 
+:root[data-bold='on'] {
+  font-weight: 600;
+}
+
+:root[data-font-size='big'] {
+  zoom: 1.15;
+}
+
 * {
   box-sizing: border-box;
 }

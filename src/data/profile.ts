@@ -3,7 +3,7 @@
 
 export interface ResearchTheme {
   title: string
-  description: string
+  description: string | string[]
 }
 
 export interface Publication {
@@ -44,6 +44,12 @@ export interface Person {
   name: string
   role: string
   photo?: string
+  aboutMe?: string[]
+  researchInterests?: string[]
+  education?: string[]
+  conferencePresentations?: string[]
+  skillsTools?: string[]
+  contact?: string[]
 }
 
 export interface GalleryItem {
@@ -61,36 +67,51 @@ export const profile = {
   pi: {
     name: 'Prof. Sajeev Philip',
     title: 'Associate Professor, CAS, IIT Delhi',
+    url: 'https://web.iitd.ac.in/~philipsajeev/',
     bio: [
       'Prof. Sajeev Philip studies atmospheric chemistry, climate, and global air quality, with a particular interest in greenhouse gases, aerosols, and satellite remote sensing. He completed his PhD in Physics at Dalhousie University, Canada, and subsequently served as a NASA Postdoctoral Program Fellow and Visiting Associate Scientist at NASA Ames Research Center.',
       "Our research is motivated by the pressing needs of the scientific community and policy makers to quantitively understand the chemical and physical processes driving the chemical constituents of Earth's atmosphere (troposphere). The troubling irony in this field of research is the dearth of direct measurements over regions where environmental issues are a concern. Therefore, we apply a suite of measurements from space-borne (satellite), suborbital, in situ and ground-based instruments along with forward and inverse model simulations using a global chemical transport model (CTM) to advance our understanding of the chemical composition of the lower troposphere. The molecules of interest range from the ones relevant to climate science research such as carbon dioxide (CO2), methane (CH4), and nitrous oxide (N2O) to those relevant to global surface air quality studies such as nitrogen dioxide (NO2), sulfur dioxide (SO2), formaldehyde (HCHO), and ozone (O3).",
     ],
   },
 
-  email: 'you@example.com',
+  email: 'philipsajeev@iitd.ac.in',
 
   socials: [
-    { label: 'Email', href: 'mailto:you@example.com', icon: 'mail' },
+    { label: 'Email', href: 'mailto:philipsajeev@iitd.ac.in', icon: 'mail' },
     { label: 'GitHub', href: 'https://github.com/yourhandle', icon: 'github' },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/yourhandle', icon: 'linkedin' },
     { label: 'Google Scholar', href: 'https://scholar.google.com/', icon: 'scholar' },
   ] satisfies SocialLink[],
 
+  contactDetails: {
+    name: 'Sajeev Philip',
+    title: 'Assistant Professor',
+    department: 'Centre for Atmospheric Sciences',
+    institution: 'Indian Institute of Technology Delhi',
+    address: 'Hauz Khas, New Delhi 110 016, India',
+    office: '415G, Block VI, IIT Delhi',
+    phone: '011 2654 8584',
+    emailDisplay: 'philipsajeev at iitd dot ac dot in',
+  },
+
   researchThemes: [
     {
-      title: 'Research Theme One',
+      title: 'Global Carbon Cycle and Greenhouse Gases Science',
       description:
-        'One or two lines describing a focus area — e.g. a physical process, a modeling problem, or a class of methods you apply to it.',
+        "Atmospheric CO2 is largely controlled by terrestrial (land) biospheric carbon fluxes. The quantification of regional-scale biospheric CO2 fluxes involves large uncertainties, especially over the tropical regions. We use global in situ measurements of atmospheric CO2 concentration and satellite observations of atmospheric column CO2 (XCO2) to estimate these uncertain natural carbon fluxes at the Earth's surface level. We assimilate in situ and satellite observations in a 4-Dimensional Variational (4D-Var) data assimilation system using the adjoint of the GEOS-Chem model to derive surface fluxes. We work with NASA's Orbiting Carbon Observatory satellites (OCO-2 and OCO-3).",
     },
     {
-      title: 'Research Theme Two',
-      description:
-        'Another focus area. Keep these tight — a title plus a single explanatory sentence reads best in the grid.',
+      title: 'Satellite Remote Sensing of Global Surface Air Quality',
+      description: [
+        'The exposure to ambient PM2.5 is a major cause of global burden of disease. A better understanding of PM2.5 chemical components and its precursor trace gas emissions (e.g., SO2, NO2, ammonia (NH3)) is essential for designing future emission mitigation policies.',
+        'Formulating policies to control surface O3 pollution by reducing emissions of its precursor species, nitrogen oxides (NOx) and volatile organic compounds (VOCs) is challenging due to lack of clear understanding about the complex O3-NOx-VOC photochemistry.',
+        'We combine satellite observations of NO2, SO2, HCHO and AOD with a global chemical transport model GEOS-Chem to better understand the spatiotemporal distribution of surface PM2.5 and other surface air pollutants (trace gases), and information about O3 precursor species (NOx and VOCs).',
+      ],
     },
     {
-      title: 'Research Theme Three',
+      title: 'Atmospheric Chemical Transport Modeling',
       description:
-        'A third focus area, or remove this card if you only have two themes to show right now.',
+        'We use the global 3-D chemical transport model: GEOS-Chem for simulating the atmospheric chemical composition. The GEOS-Chem model is applied for a range of research problems related to global surface air quality and climate. Improvement of the model is an active area of research.',
     },
   ] satisfies ResearchTheme[],
 
@@ -752,20 +773,60 @@ export const profile = {
     },
   ] satisfies PresentationEntry[],
 
-  highlights: [
+  researchProjects: [
     {
-      title: 'INSA Associate Fellowship 2023',
-      date: '2023',
-      description:
-        'Prof. Sajeev Philip has been awarded the Indian National Science Academy (INSA) Associate Fellowship 2023. He has also been selected as a member of the National Committee for the International Union of Geodesy and Geophysics (IUGG) and the International Geographical Union (IGU).',
-      image: '/prof.png',
+      title:
+        'Improving the satellite retrievals of atmospheric nitrogen dioxide (NO2) and formaldehyde (HCHO) concentrations over India using India-centric high-performance chemical transport modeling',
+      authors: 'PI: Sajeev Philip · Co-PI: Radhika Chipade (SAC, ISRO)',
+      detail: 'Role: PI · Agency: ISRO, Govt. of India · Duration: 2026 - 2028',
     },
     {
-      title: "Primary Production Drives India's Carbon Flux Response",
-      date: '2025',
-      description: 'Coverage of the study on gross primary production and Indian terrestrial carbon flux variability.',
-      href: 'https://scienmag.com/primary-production-drives-indias-carbon-flux-response/',
-      image: '/image.png',
+      title: 'Air pollutant dispersion using national weather parameters',
+      authors: 'PI: Sajeev Philip · Co-PI: Sarvesh Kumar Dubey (IIT Delhi)',
+      detail: 'Role: PI · Agency: CAIR, Govt. of India · Duration: 2025 - 2026',
+    },
+    {
+      title:
+        'SANJEEVANI - Strategies for ActioNs to Jointly address climatE changE and air pollution for achieVing heAlth beNefits in India',
+      authors: 'PI: Sagnik Dey',
+      detail: 'Role: Co-PI · Agency: ICMR · Duration: 2025-2031',
+    },
+    {
+      title: 'Health and climate co-benefits of pollution management',
+      authors: 'PI: Sagnik Dey',
+      detail: 'Role: Co-PI · Agency: Clean Air Fund · Duration: 2023-2026',
+    },
+  ] satisfies PresentationEntry[],
+
+  completedResearchProjects: [
+    {
+      title: 'Quantification of nitrous oxide fluxes over India by top-down inverse modeling',
+      authors: 'PI: Sajeev Philip',
+      detail:
+        'Role: PI · Agency: Science and Engineering Research Board (SERB or ANRF), DST, Govt. of India · Duration: 06-10-2022 - 05-01-2025',
+    },
+    {
+      title: 'Environmental impact of Kolhu units',
+      authors: 'PI: Sajeev Philip · Co-PI: Sagnik Dey (IIT Delhi)',
+      detail:
+        'Role: PI · Agency: Private Consultancy (Through DRIIV, IIT Delhi) · Duration: 01-01-2026 - 30-06-2026',
+    },
+    {
+      title:
+        'Improved assessment of recent trends in NOx and VOC emissions and ozone production sensitivity regimes using satellite data',
+      authors: 'PI: Matthew Johnson (NASA)',
+      detail: 'Role: Co-PI (Unfunded) · Agency: NASA · Duration: 2023-2026',
+    },
+  ] satisfies PresentationEntry[],
+
+  highlights: [
+    {
+      title: 'Emissions from Indian Coal Power Plants',
+      date: '2026',
+      description:
+        'Mitigating SO2 from coal power plants could prevent over 1.24 lakh deaths annually in India, says IIT Delhi study.',
+      href: 'https://indianexpress.com/article/cities/delhi/mitigating-so2-from-coal-power-plants-could-prevent-over-1-24-lakh-deaths-annually-in-india-says-iit-delhi-study-10676757/',
+      image: '/coal.png',
     },
     {
       title: 'Cutting sulfur from coal plants could save over 120,000 lives a year in India',
@@ -776,12 +837,18 @@ export const profile = {
       image: '/map.png',
     },
     {
-      title: 'Emissions from Indian Coal Power Plants',
-      date: '2026',
+      title: "Primary Production Drives India's Carbon Flux Response",
+      date: '2025',
+      description: 'Coverage of the study on gross primary production and Indian terrestrial carbon flux variability.',
+      href: 'https://scienmag.com/primary-production-drives-indias-carbon-flux-response/',
+      image: '/image.png',
+    },
+    {
+      title: 'INSA Associate Fellowship 2023',
+      date: '2023',
       description:
-        'Mitigating SO2 from coal power plants could prevent over 1.24 lakh deaths annually in India, says IIT Delhi study.',
-      href: 'https://indianexpress.com/article/cities/delhi/mitigating-so2-from-coal-power-plants-could-prevent-over-1-24-lakh-deaths-annually-in-india-says-iit-delhi-study-10676757/',
-      image: '/coal.png',
+        'Prof. Sajeev Philip has been awarded the Indian National Science Academy (INSA) Associate Fellowship 2023. He has also been selected as a member of the National Committee for the International Union of Geodesy and Geophysics (IUGG) and the International Geographical Union (IGU).',
+      image: '/prof.png',
     },
   ] satisfies HighlightItem[],
 

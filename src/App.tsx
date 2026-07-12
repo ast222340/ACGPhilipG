@@ -11,6 +11,7 @@ import { GroupMeeting } from './pages/GroupMeeting'
 import { Highlights } from './pages/Highlights'
 import { Home } from './pages/Home'
 import { People } from './pages/People'
+import { PersonDetail } from './pages/PersonDetail'
 import { Presentations } from './pages/Presentations'
 import { Publications } from './pages/Publications'
 import { Research } from './pages/Research'
@@ -27,6 +28,7 @@ function App() {
           <Route path="/publications" element={<Publications />} />
           <Route path="/presentation" element={<Presentations />} />
           <Route path="/people" element={<People />} />
+          <Route path="/people/:slug" element={<PersonDetail />} />
           <Route path="/highlights" element={<Highlights />} />
           <Route path="/group-info" element={<GroupInfo />} />
           <Route path="/group-info/meeting" element={<GroupMeeting />} />

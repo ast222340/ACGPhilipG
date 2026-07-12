@@ -2,6 +2,8 @@ import { PageHeader } from '../components/PageHeader'
 import { PersonCard } from '../components/PersonCard'
 import { profile } from '../data/profile'
 
+const headerImage = `${import.meta.env.BASE_URL}group.jpeg`
+
 const categories: { key: keyof typeof profile.team; label: string }[] = [
   { key: 'postdoctoral', label: 'Postdoctoral' },
   { key: 'phd', label: 'Ph.D. Students' },
@@ -18,6 +20,7 @@ export function People() {
         eyebrow="Our Team"
         title="Group Members"
         lead={`Motivated researchers and students are welcome to join our group for Postdoc, Ph.D., M. Tech. (PG), and B. Tech. (UG) research. Please write to me (philipsajeev "at" iitd "dot" ac "dot" in) if you are interested in our research.`}
+        image={headerImage}
       />
       {categories.map(({ key, label }, i) => {
         const members = profile.team[key]

@@ -3,6 +3,8 @@ import { PageHeader } from '../components/PageHeader'
 import { profile } from '../data/profile'
 import { useInView } from '../hooks/useInView'
 
+const headerImage = `${import.meta.env.BASE_URL}Dinner/tecday_2025.jpeg`
+
 const iconMap = {
   mail: IconMail,
   github: IconGithub,
@@ -18,7 +20,12 @@ export function GroupInfo() {
 
   return (
     <>
-      <PageHeader eyebrow="Group Info" title="Group Info" lead="Who we are and how to reach us." />
+      <PageHeader
+        eyebrow="Group Info"
+        title="Group Info"
+        lead="Who we are and how to reach us."
+        image={headerImage}
+      />
       <section className="section">
         <div className="about-grid">
           <div ref={bioRef} className={`about-bio reveal ${bioInView ? 'in-view' : ''}`}>

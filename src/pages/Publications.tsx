@@ -3,6 +3,8 @@ import { PageHeader } from '../components/PageHeader'
 import { profile, type Publication } from '../data/profile'
 import { useInView } from '../hooks/useInView'
 
+const headerImage = `${import.meta.env.BASE_URL}pub.png`
+
 function PublicationItem({ index, pub }: { index: number; pub: Publication }) {
   const { ref, inView } = useInView<HTMLElement>()
   return (
@@ -41,6 +43,7 @@ export function Publications() {
         eyebrow="Publications"
         title="Publications"
         lead="Peer-reviewed papers, preprints, and other written work."
+        image={headerImage}
       />
       <section className="section">
         <div className="pub-list">

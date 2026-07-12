@@ -1,20 +1,21 @@
 import { Hero } from '../components/Hero'
 import { profile } from '../data/profile'
-import groupPhoto from '../group.jpeg'
+
+const groupPhoto = `${import.meta.env.BASE_URL}group.jpeg`
 
 export function Home() {
   return (
     <>
       <Hero />
       <section className="section">
-        <div className="pi-row">
-          <div className="pi-photo-placeholder">Coming soon</div>
+        <a className="pi-row" href={profile.pi.url} target="_blank" rel="noreferrer">
+          <img className="pi-photo" src={`${import.meta.env.BASE_URL}photo.png`} alt={profile.pi.name} />
           <div>
             <h2 className="pi-name">{profile.pi.name}</h2>
             <p className="pi-title">{profile.pi.title}</p>
             <p className="pi-bio">{profile.pi.bio[0]}</p>
           </div>
-        </div>
+        </a>
       </section>
       <section className="section section-alt">
         <div className="pi-photo-grid">

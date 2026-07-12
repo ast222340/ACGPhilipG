@@ -1,6 +1,7 @@
-import casLogo from '../cas.png'
 import { profile } from '../data/profile'
 import { IconArrowUp, IconGithub, IconLinkedin, IconMail, IconScholar, IconX } from './Icons'
+
+const casLogo = `${import.meta.env.BASE_URL}cas.png`
 
 const iconMap = {
   mail: IconMail,

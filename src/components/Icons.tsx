@@ -87,6 +87,14 @@ export function IconArrowUp({ className }: IconProps) {
   )
 }
 
+export function IconArrowLeft({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M19 12H5M11 6l-6 6 6 6" />
+    </svg>
+  )
+}
+
 export function IconChevronDown({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

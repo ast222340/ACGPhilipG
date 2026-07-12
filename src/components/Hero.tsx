@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
-import casLogo from '../cas.png'
-import iitdLogo from '../IITD.svg'
-import image1 from '../1.png'
-import image3 from '../2.jpeg'
+
+const casLogo = `${import.meta.env.BASE_URL}cas.png`
+const iitdLogo = `${import.meta.env.BASE_URL}IITD.svg`
 
 const STEP_DURATION = 5000
 const FADE_DURATION = 900
 
 const heroSteps = [
-  { type: 'image', src: image1 },
-  { type: 'image', src: image3 },
+  { type: 'image', src: `${import.meta.env.BASE_URL}1.png` },
+  { type: 'image', src: `${import.meta.env.BASE_URL}2.jpeg` },
   { type: 'video', src: `${import.meta.env.BASE_URL}3.mp4` },
   { type: 'video', src: `${import.meta.env.BASE_URL}4.mp4` },
   { type: 'video', src: `${import.meta.env.BASE_URL}5.mp4` },

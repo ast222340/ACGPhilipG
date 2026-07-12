@@ -28,8 +28,7 @@ function HighlightCard({ index, highlight }: { index: number; highlight: Highlig
 
   const inner = highlight.image ? (
     <>
-      <img className="highlight-bg" src={resolveImage(highlight.image)} alt="" loading="lazy" />
-      <div className="highlight-scrim" aria-hidden="true" />
+      <img className="highlight-img" src={resolveImage(highlight.image)} alt="" loading="lazy" />
       <div className="highlight-body">{text}</div>
     </>
   ) : (
@@ -60,6 +59,7 @@ export function Highlights() {
         eyebrow="Highlights"
         title="Highlights"
         lead="Recent achievements, media mentions, and milestones."
+        image={resolveImage('/map.png')}
       />
       <section className="section">
         <div className="award-grid highlight-grid">
