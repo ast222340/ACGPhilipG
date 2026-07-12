@@ -19,7 +19,7 @@ export function People() {
       <PageHeader
         eyebrow="Our Team"
         title="Group Members"
-        lead={`Motivated researchers and students are welcome to join our group for Postdoc, Ph.D., M. Tech. (PG), and B. Tech. (UG) research. Please write to me (philipsajeev "at" iitd "dot" ac "dot" in) if you are interested in our research.`}
+        lead=""
         image={headerImage}
       />
       {categories.map(({ key, label }, i) => {
