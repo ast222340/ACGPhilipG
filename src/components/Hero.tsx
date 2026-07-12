@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-const casLogo = `${import.meta.env.BASE_URL}cas.png`
 const iitdLogo = `${import.meta.env.BASE_URL}IITD.svg`
 
 const STEP_DURATION = 5000
@@ -48,7 +47,6 @@ export function Hero() {
       <HeroMedia key={step} index={step} fadeIn />
       <div className="hero-overlay" aria-hidden="true" />
       <div className="hero-inner">
-        <img className="hero-logo" src={casLogo} alt="Centre for Atmospheric Sciences logo" />
         <div className="hero-text">
           <p className="eyebrow">Welcome</p>
           <h1>Atmospheric Chemistry Group</h1>
